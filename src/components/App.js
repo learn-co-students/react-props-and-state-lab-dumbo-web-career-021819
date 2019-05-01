@@ -50,10 +50,9 @@ class App extends React.Component {
   }
 
   onAdoptPet = (petId) => {
-    const newPets = this.state.pets.map(pet => {
+    let newPets = this.state.pets.map(pet => {
       if (pet.id === petId) {
-        pet.isAdopted = !pet.isAdopted
-        return pet
+        return {...pet, isAdopted: !pet.isAdopted}
       } else {
         return pet
       }
@@ -72,7 +71,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters onChangeType={this.onChangeType} onFindPetsClick={this.onFindPetsClick}/>
+              <Filters type={this.state.filters.type} onChangeType={this.onChangeType} onFindPetsClick={this.onFindPetsClick}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser pets={this.state.displayPets} onAdoptPet= {this.onAdoptPet}/>

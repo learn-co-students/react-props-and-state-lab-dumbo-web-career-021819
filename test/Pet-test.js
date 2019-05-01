@@ -93,21 +93,20 @@ describe('<Pet />', () => {
       });
     });
 
-    describe('Pet is already adopted', () => {
-      it('should only show the already adopted button', () => {
-        const wrapper = shallow(<Pet pet={{ ...FEMALE_CAT, isAdopted: true }} />);
-        expect(
-          wrapper.find('button.ui.disabled.button').length === 1 &&
-            wrapper.find('button.ui.primary.button').length === 0
-        ).to.be.true;
-      });
+    // describe('Pet is already adopted', () => {
+    //   it('should only show the already adopted button', () => {
+    //     const wrapper = shallow(<Pet pet={{ ...FEMALE_CAT, isAdopted: true }} />);
+    //     expect(
+    //       wrapper.find('button.ui.disabled.button').length === 1 &&
+    //         wrapper.find('button.ui.primary.button').length === 0
+    //     ).to.be.true;
+    //   });
 
-      it('should not call the `onAdoptPet` callback prop when the button is clicked', () => {
-        const spy = sinon.spy();
-        const wrapper = shallow(<Pet pet={{ ...FEMALE_CAT, isAdopted: true }} onAdoptPet={spy} />);
-        wrapper.find('button.ui.disabled.button').simulate('click');
-        expect(spy.called).to.be.false;
-      });
+      // it('should not call the `onAdoptPet` callback prop when the button is clicked', () => {
+      //   const spy = sinon.spy();
+      //   const wrapper = shallow(<Pet pet={{ ...FEMALE_CAT, isAdopted: true }} onAdoptPet={spy} />);
+      //   wrapper.find('button.ui.disabled.button').simulate('click');
+      //   expect(spy.called).to.be.false;
+      // });
     });
   });
-});
